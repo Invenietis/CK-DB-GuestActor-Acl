@@ -1,0 +1,13 @@
+-- SetupConfig: { "AddRequires": [ "Model.CK.AclTable" ] }
+
+create transformer on CK.sGuestActorDestroy
+as
+begin
+
+  inject "
+    delete from CK.tAclConfig where ActorId = @GuestActorId;
+    delete from CK.tAclConfigMemory where ActorId = @GuestActorId;
+  "
+  into "PreDestroyActorOnly"
+
+end
