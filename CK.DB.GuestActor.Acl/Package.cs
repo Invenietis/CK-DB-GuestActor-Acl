@@ -3,6 +3,9 @@ using CK.SqlServer.Setup;
 
 namespace CK.DB.GuestActor.Acl
 {
+    /// <summary>
+    /// Package that adds acl support to <see cref="GuestActorTable"/>.
+    /// </summary>
     [SqlPackage( Schema = "CK", ResourcePath = "Res" )]
     [Versions( "1.0.0" )]
     [SqlObjectItem( "transform:sGuestActorDestroy" )]
