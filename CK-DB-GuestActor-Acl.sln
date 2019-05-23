@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1E178CC0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CK.DB.GuestActor.Acl", "CK.DB.GuestActor.Acl\CK.DB.GuestActor.Acl.csproj", "{E2624B90-0789-4851-9359-8478013A73A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CK.DB.GuestActor.Tests", "Tests\CK.DB.GuestActor.Acl.Tests\CK.DB.GuestActor.Tests.csproj", "{86F115B7-CF9C-458D-A16E-848E8406DDC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CK.DB.GuestActor.Acl.Tests", "Tests\CK.DB.GuestActor.Acl.Tests\CK.DB.GuestActor.Acl.Tests.csproj", "{86F115B7-CF9C-458D-A16E-848E8406DDC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
