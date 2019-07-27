@@ -56,7 +56,7 @@ namespace CodeCake
 
             SimpleRepositoryInfo gitInfo = Cake.GetSimpleRepositoryInfo();
             StandardGlobalInfo globalInfo = CreateStandardGlobalInfo( gitInfo )
-                                                .AddNuGet( projectsToPublish )
+                                                .AddDotnet()
                                                 .SetCIBuildTag();
 
             Task( "Check-Repository" )
@@ -69,10 +69,9 @@ namespace CodeCake
                 .IsDependentOn( "Check-Repository" )
                 .Does( () =>
                  {
-                     Cake.CleanDirectories( projects.Select( p => p.Path.GetDirectory().Combine( "bin" ) ) );
-                     Cake.CleanDirectories( projects.Select( p => p.Path.GetDirectory().Combine( "obj" ) ) );
+                     globalInfo.GetDotnetSolution().Clean();
                      Cake.CleanDirectories( globalInfo.ReleasesFolder );
-                     Cake.DeleteFiles( "Tests/**/TestResult*.xml" );
+                    
                  } );
 
             Task( "Build" )
@@ -80,7 +79,7 @@ namespace CodeCake
                 .IsDependentOn( "Clean" )
                 .Does( () =>
                 {
-                    StandardSolutionBuild( globalInfo, solutionFileName );
+                    globalInfo.GetDotnetSolution().Build();
                 } );
 
             Task( "Unit-Testing" )
@@ -89,8 +88,8 @@ namespace CodeCake
                                      || Cake.ReadInteractiveOption( "RunUnitTests", "Run Unit Tests?", 'Y', 'N' ) == 'Y' )
                .Does( () =>
                {
-                    var testProjects = projects.Where( p => p.Name.EndsWith( ".Tests" ) );
-                    StandardUnitTests( globalInfo, testProjects );
+                    
+                  globalInfo.GetDotnetSolution().Test();
                } );
 
             Task( "Create-NuGet-Packages" )
@@ -98,7 +97,7 @@ namespace CodeCake
                 .IsDependentOn( "Unit-Testing" )
                 .Does( () =>
                 {
-                    StandardCreateNuGetPackages( globalInfo );
+                    globalInfo.GetDotnetSolution().Pack();
                 } );
 
             Task( "Push-Artifacts" )
