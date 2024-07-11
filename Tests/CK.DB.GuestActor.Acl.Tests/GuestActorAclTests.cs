@@ -7,7 +7,7 @@ using CK.SqlServer;
 using FluentAssertions;
 using NUnit.Framework;
 
-using static CK.Testing.DBSetupTestHelper;
+using static CK.Testing.MonitorTestHelper;
 
 namespace CK.DB.GuestActor.Tests
 {
@@ -17,8 +17,8 @@ namespace CK.DB.GuestActor.Tests
         [Test]
         public void when_guest_actor_was_granted_on_acl_it_can_be_destroyed()
         {
-            var guestActorTable = TestHelper.StObjMap.StObjs.Obtain<GuestActorTable>();
-            var aclTable = TestHelper.StObjMap.StObjs.Obtain<AclTable>();
+            var guestActorTable = SharedEngine.Map.StObjs.Obtain<GuestActorTable>();
+            var aclTable = SharedEngine.Map.StObjs.Obtain<AclTable>();
 
             using( var ctx = new SqlStandardCallContext( TestHelper.Monitor ) )
             {
@@ -35,9 +35,9 @@ namespace CK.DB.GuestActor.Tests
         [Test]
         public void when_guest_actor_is_a_user_and_was_granted_on_acl_it_can_be_destroyed()
         {
-            var userTable = TestHelper.StObjMap.StObjs.Obtain<UserTable>();
-            var guestActorTable = TestHelper.StObjMap.StObjs.Obtain<GuestActorTable>();
-            var aclTable = TestHelper.StObjMap.StObjs.Obtain<AclTable>();
+            var userTable = SharedEngine.Map.StObjs.Obtain<UserTable>();
+            var guestActorTable = SharedEngine.Map.StObjs.Obtain<GuestActorTable>();
+            var aclTable = SharedEngine.Map.StObjs.Obtain<AclTable>();
 
             using( var ctx = new SqlStandardCallContext( TestHelper.Monitor ) )
             {
