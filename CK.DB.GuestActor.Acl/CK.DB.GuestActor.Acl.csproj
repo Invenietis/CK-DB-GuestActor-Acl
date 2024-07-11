@@ -7,7 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CK.DB.Acl" Version="0.0.0--04yzfbn-develop" />
-    <PackageReference Include="CK.DB.GuestActor" Version="0.0.0--04yzfbv-develop" />
+    <PackageReference Include="CK.DB.GuestActor" Version="0.0.0--04yzmhd-develop" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="**\*.sql;**\*.tql;**\*.y4" Exclude="bin\**;obj\**;@(EmbeddedResource)" />
