@@ -6,8 +6,8 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CK.DB.Acl" Version="0.0.0--04yz3nl-develop" />
-    <PackageReference Include="CK.DB.GuestActor" Version="0.0.0--04yz3no-develop" />
+    <PackageReference Include="CK.DB.Acl" Version="0.0.0--04yz4qj-develop" />
+    <PackageReference Include="CK.DB.GuestActor" Version="0.0.0--04yz4ql-develop" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="**\*.sql;**\*.tql;**\*.y4" Exclude="bin\**;obj\**;@(EmbeddedResource)" />
